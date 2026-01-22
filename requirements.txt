@@ -1,0 +1,19 @@
+# Thư viện xử lý dữ liệu
+pandas
+numpy
+
+# Thư viện vẽ biểu đồ
+matplotlib
+seaborn
+wordcloud
+
+# Thư viện thống kê
+statsmodels
+scipy
+
+# Hỗ trợ chạy Notebook trong VS Code
+ipykernel
+
+# để nói chuyện với PostgreSQL
+sqlalchemy
+psycopg2-binary

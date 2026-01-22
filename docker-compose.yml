@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 1. Database Service
+  db:
+    image: postgres:15
+    container_name: youtube_postgres
+    environment:
+      POSTGRES_USER: user123
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: youtube_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Giữ lại dữ liệu dù tắt container
+
+  # 2. Admin Interface (Để xem DB bằng giao diện web)
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: youtube_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
